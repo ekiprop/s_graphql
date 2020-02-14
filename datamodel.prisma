@@ -13,6 +13,6 @@ type Game {
   country: String!
   prediction: String!
   outcome: String
-  matchDate: DateTime
+  kickoff: DateTime
   daily: Daily @relation(name: "Dailys", onDelete: SET_NULL)
 }

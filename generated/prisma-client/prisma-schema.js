@@ -179,7 +179,7 @@ type Game {
   country: String!
   prediction: String!
   outcome: String
-  matchDate: DateTime
+  kickoff: DateTime
   daily: Daily
 }
 
@@ -196,7 +196,7 @@ input GameCreateInput {
   country: String!
   prediction: String!
   outcome: String
-  matchDate: DateTime
+  kickoff: DateTime
   daily: DailyCreateOneWithoutGamesInput
 }
 
@@ -212,7 +212,7 @@ input GameCreateWithoutDailyInput {
   country: String!
   prediction: String!
   outcome: String
-  matchDate: DateTime
+  kickoff: DateTime
 }
 
 type GameEdge {
@@ -233,8 +233,8 @@ enum GameOrderByInput {
   prediction_DESC
   outcome_ASC
   outcome_DESC
-  matchDate_ASC
-  matchDate_DESC
+  kickoff_ASC
+  kickoff_DESC
 }
 
 type GamePreviousValues {
@@ -244,7 +244,7 @@ type GamePreviousValues {
   country: String!
   prediction: String!
   outcome: String
-  matchDate: DateTime
+  kickoff: DateTime
 }
 
 input GameScalarWhereInput {
@@ -332,14 +332,14 @@ input GameScalarWhereInput {
   outcome_not_starts_with: String
   outcome_ends_with: String
   outcome_not_ends_with: String
-  matchDate: DateTime
-  matchDate_not: DateTime
-  matchDate_in: [DateTime!]
-  matchDate_not_in: [DateTime!]
-  matchDate_lt: DateTime
-  matchDate_lte: DateTime
-  matchDate_gt: DateTime
-  matchDate_gte: DateTime
+  kickoff: DateTime
+  kickoff_not: DateTime
+  kickoff_in: [DateTime!]
+  kickoff_not_in: [DateTime!]
+  kickoff_lt: DateTime
+  kickoff_lte: DateTime
+  kickoff_gt: DateTime
+  kickoff_gte: DateTime
   AND: [GameScalarWhereInput!]
   OR: [GameScalarWhereInput!]
   NOT: [GameScalarWhereInput!]
@@ -369,7 +369,7 @@ input GameUpdateInput {
   country: String
   prediction: String
   outcome: String
-  matchDate: DateTime
+  kickoff: DateTime
   daily: DailyUpdateOneWithoutGamesInput
 }
 
@@ -379,7 +379,7 @@ input GameUpdateManyDataInput {
   country: String
   prediction: String
   outcome: String
-  matchDate: DateTime
+  kickoff: DateTime
 }
 
 input GameUpdateManyMutationInput {
@@ -388,7 +388,7 @@ input GameUpdateManyMutationInput {
   country: String
   prediction: String
   outcome: String
-  matchDate: DateTime
+  kickoff: DateTime
 }
 
 input GameUpdateManyWithoutDailyInput {
@@ -414,7 +414,7 @@ input GameUpdateWithoutDailyDataInput {
   country: String
   prediction: String
   outcome: String
-  matchDate: DateTime
+  kickoff: DateTime
 }
 
 input GameUpdateWithWhereUniqueWithoutDailyInput {
@@ -513,14 +513,14 @@ input GameWhereInput {
   outcome_not_starts_with: String
   outcome_ends_with: String
   outcome_not_ends_with: String
-  matchDate: DateTime
-  matchDate_not: DateTime
-  matchDate_in: [DateTime!]
-  matchDate_not_in: [DateTime!]
-  matchDate_lt: DateTime
-  matchDate_lte: DateTime
-  matchDate_gt: DateTime
-  matchDate_gte: DateTime
+  kickoff: DateTime
+  kickoff_not: DateTime
+  kickoff_in: [DateTime!]
+  kickoff_not_in: [DateTime!]
+  kickoff_lt: DateTime
+  kickoff_lte: DateTime
+  kickoff_gt: DateTime
+  kickoff_gte: DateTime
   daily: DailyWhereInput
   AND: [GameWhereInput!]
   OR: [GameWhereInput!]

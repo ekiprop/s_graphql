@@ -6,7 +6,7 @@ type Query {
 
 type Mutation {
   addDaily (name: String!): Daily
-  addGame(home: String!,away: String!, country: String!,prediction: String!,outcome: String!, matchDate: String!,dailyId: ID!): Game
+  addGame(home: String!,away: String!, country: String!,prediction: String!,outcome: String!, kickoff: String!,dailyId: ID!): Game
   
 }
 
@@ -25,5 +25,5 @@ type Game {
   country: String!
   prediction: String!
   outcome: String
-  matchDate: DateTime!
+  kickoff: DateTime
   daily: Daily 

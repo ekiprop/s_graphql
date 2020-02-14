@@ -153,8 +153,8 @@ export type GameOrderByInput =
   | "prediction_DESC"
   | "outcome_ASC"
   | "outcome_DESC"
-  | "matchDate_ASC"
-  | "matchDate_DESC";
+  | "kickoff_ASC"
+  | "kickoff_DESC";
 
 export type DailyOrderByInput =
   | "id_ASC"
@@ -198,7 +198,7 @@ export interface GameUpdateWithoutDailyDataInput {
   country?: Maybe<String>;
   prediction?: Maybe<String>;
   outcome?: Maybe<String>;
-  matchDate?: Maybe<DateTimeInput>;
+  kickoff?: Maybe<DateTimeInput>;
 }
 
 export interface GameWhereInput {
@@ -286,14 +286,14 @@ export interface GameWhereInput {
   outcome_not_starts_with?: Maybe<String>;
   outcome_ends_with?: Maybe<String>;
   outcome_not_ends_with?: Maybe<String>;
-  matchDate?: Maybe<DateTimeInput>;
-  matchDate_not?: Maybe<DateTimeInput>;
-  matchDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  matchDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  matchDate_lt?: Maybe<DateTimeInput>;
-  matchDate_lte?: Maybe<DateTimeInput>;
-  matchDate_gt?: Maybe<DateTimeInput>;
-  matchDate_gte?: Maybe<DateTimeInput>;
+  kickoff?: Maybe<DateTimeInput>;
+  kickoff_not?: Maybe<DateTimeInput>;
+  kickoff_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  kickoff_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  kickoff_lt?: Maybe<DateTimeInput>;
+  kickoff_lte?: Maybe<DateTimeInput>;
+  kickoff_gt?: Maybe<DateTimeInput>;
+  kickoff_gte?: Maybe<DateTimeInput>;
   daily?: Maybe<DailyWhereInput>;
   AND?: Maybe<GameWhereInput[] | GameWhereInput>;
   OR?: Maybe<GameWhereInput[] | GameWhereInput>;
@@ -307,7 +307,7 @@ export interface GameCreateInput {
   country: String;
   prediction: String;
   outcome?: Maybe<String>;
-  matchDate?: Maybe<DateTimeInput>;
+  kickoff?: Maybe<DateTimeInput>;
   daily?: Maybe<DailyCreateOneWithoutGamesInput>;
 }
 
@@ -365,7 +365,7 @@ export interface GameCreateWithoutDailyInput {
   country: String;
   prediction: String;
   outcome?: Maybe<String>;
-  matchDate?: Maybe<DateTimeInput>;
+  kickoff?: Maybe<DateTimeInput>;
 }
 
 export type GameWhereUniqueInput = AtLeastOne<{
@@ -392,7 +392,7 @@ export interface GameUpdateManyMutationInput {
   country?: Maybe<String>;
   prediction?: Maybe<String>;
   outcome?: Maybe<String>;
-  matchDate?: Maybe<DateTimeInput>;
+  kickoff?: Maybe<DateTimeInput>;
 }
 
 export interface GameScalarWhereInput {
@@ -480,14 +480,14 @@ export interface GameScalarWhereInput {
   outcome_not_starts_with?: Maybe<String>;
   outcome_ends_with?: Maybe<String>;
   outcome_not_ends_with?: Maybe<String>;
-  matchDate?: Maybe<DateTimeInput>;
-  matchDate_not?: Maybe<DateTimeInput>;
-  matchDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  matchDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  matchDate_lt?: Maybe<DateTimeInput>;
-  matchDate_lte?: Maybe<DateTimeInput>;
-  matchDate_gt?: Maybe<DateTimeInput>;
-  matchDate_gte?: Maybe<DateTimeInput>;
+  kickoff?: Maybe<DateTimeInput>;
+  kickoff_not?: Maybe<DateTimeInput>;
+  kickoff_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  kickoff_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  kickoff_lt?: Maybe<DateTimeInput>;
+  kickoff_lte?: Maybe<DateTimeInput>;
+  kickoff_gt?: Maybe<DateTimeInput>;
+  kickoff_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<GameScalarWhereInput[] | GameScalarWhereInput>;
   OR?: Maybe<GameScalarWhereInput[] | GameScalarWhereInput>;
   NOT?: Maybe<GameScalarWhereInput[] | GameScalarWhereInput>;
@@ -499,7 +499,7 @@ export interface GameUpdateManyDataInput {
   country?: Maybe<String>;
   prediction?: Maybe<String>;
   outcome?: Maybe<String>;
-  matchDate?: Maybe<DateTimeInput>;
+  kickoff?: Maybe<DateTimeInput>;
 }
 
 export interface DailyWhereInput {
@@ -586,7 +586,7 @@ export interface GameUpdateInput {
   country?: Maybe<String>;
   prediction?: Maybe<String>;
   outcome?: Maybe<String>;
-  matchDate?: Maybe<DateTimeInput>;
+  kickoff?: Maybe<DateTimeInput>;
   daily?: Maybe<DailyUpdateOneWithoutGamesInput>;
 }
 
@@ -601,7 +601,7 @@ export interface GamePreviousValues {
   country: String;
   prediction: String;
   outcome?: String;
-  matchDate?: DateTimeOutput;
+  kickoff?: DateTimeOutput;
 }
 
 export interface GamePreviousValuesPromise
@@ -613,7 +613,7 @@ export interface GamePreviousValuesPromise
   country: () => Promise<String>;
   prediction: () => Promise<String>;
   outcome: () => Promise<String>;
-  matchDate: () => Promise<DateTimeOutput>;
+  kickoff: () => Promise<DateTimeOutput>;
 }
 
 export interface GamePreviousValuesSubscription
@@ -625,7 +625,7 @@ export interface GamePreviousValuesSubscription
   country: () => Promise<AsyncIterator<String>>;
   prediction: () => Promise<AsyncIterator<String>>;
   outcome: () => Promise<AsyncIterator<String>>;
-  matchDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  kickoff: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface DailyEdge {
@@ -677,7 +677,7 @@ export interface Game {
   country: String;
   prediction: String;
   outcome?: String;
-  matchDate?: DateTimeOutput;
+  kickoff?: DateTimeOutput;
 }
 
 export interface GamePromise extends Promise<Game>, Fragmentable {
@@ -687,7 +687,7 @@ export interface GamePromise extends Promise<Game>, Fragmentable {
   country: () => Promise<String>;
   prediction: () => Promise<String>;
   outcome: () => Promise<String>;
-  matchDate: () => Promise<DateTimeOutput>;
+  kickoff: () => Promise<DateTimeOutput>;
   daily: <T = DailyPromise>() => T;
 }
 
@@ -700,7 +700,7 @@ export interface GameSubscription
   country: () => Promise<AsyncIterator<String>>;
   prediction: () => Promise<AsyncIterator<String>>;
   outcome: () => Promise<AsyncIterator<String>>;
-  matchDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  kickoff: () => Promise<AsyncIterator<DateTimeOutput>>;
   daily: <T = DailySubscription>() => T;
 }
 
@@ -713,7 +713,7 @@ export interface GameNullablePromise
   country: () => Promise<String>;
   prediction: () => Promise<String>;
   outcome: () => Promise<String>;
-  matchDate: () => Promise<DateTimeOutput>;
+  kickoff: () => Promise<DateTimeOutput>;
   daily: <T = DailyPromise>() => T;
 }
 

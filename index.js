@@ -25,7 +25,7 @@ const resolvers = {
         country: args.country,
         prediction: args.prediction,
         outcome: args.outcome,
-        match_date: args.match_date,
+        kickoff: args.kickoff,
         daily: {
           connect: { id: args.dailyId }
         }
