@@ -1,0 +1,18 @@
+type Daily {
+  id: ID! @id @unique
+  name: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  games: [Game!]! @relation( name: "DailyGames" ,onDelete: CASCADE)
+}
+
+type Game {
+  id: ID! @id
+  home: String!
+  away: String!
+  country: String!
+  prediction: String!
+  outcome: String
+  matchDate: DateTime
+  daily: Daily @relation(name: "Dailys", onDelete: SET_NULL)
+}
