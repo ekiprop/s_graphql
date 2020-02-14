@@ -14,5 +14,5 @@ type Game {
   prediction: String!
   outcome: String
   kickoff: DateTime
-  daily: Daily @relation(name: "Dailys", onDelete: SET_NULL)
+  daily: Daily! @relation(name: "Dailys", onDelete: SET_NULL)
 }
