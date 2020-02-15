@@ -3,6 +3,9 @@ const { GraphQLServer } = require("graphql-yoga");
 
 const resolvers = {
   Query: {
+    allDailies(root, args, context) {
+      return context.prisma.dailies();
+    },
     allGames(root, args, context) {
       return context.prisma.games();
     },
@@ -42,7 +45,7 @@ const resolvers = {
         .daily({
           id: root.id
         })
-        .dailies();
+        .games();
     }
   },
   Game: {

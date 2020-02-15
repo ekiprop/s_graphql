@@ -1,29 +1,38 @@
 type Query {
   allGames: [Game!]!
+  allDailies: [Daily!]!
   game(gameID: ID!): Game
   gamesByDaily(dailyId: ID!): [Game!]!
 }
 
 type Mutation {
-  addDaily (name: String!): Daily
-  addGame(home: String!,away: String!, country: String!,prediction: String!,outcome: String!, kickoff: String!,dailyId: ID!): Game
-  
+  addDaily(name: String!): Daily
+  addGame(
+    home: String!
+    away: String!
+    country: String!
+    prediction: String!
+    outcome: String
+    kickoff: String
+    dailyId: ID
+  ): Game
 }
 
 type Daily {
-  id: ID! 
+  id: ID!
   name: String!
-  createdAt: DateTime!
-  updatedAt: DateTime! 
-  games: [Game!]! 
+  createdAt: String!
+  updatedAt: String!
+  games: [Game!]!
 }
 
 type Game {
-  id: ID! 
+  id: ID!
   home: String!
   away: String!
   country: String!
   prediction: String!
   outcome: String
-  kickoff: DateTime
-  daily: Daily 
+  kickoff: String
+  daily: Daily
+}
